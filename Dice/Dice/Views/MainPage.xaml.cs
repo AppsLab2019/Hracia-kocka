@@ -13,7 +13,7 @@ namespace Dice.Views
         private readonly MainViewModel viewModel;
         public MainPage()
         {
-            InitializeComponent();          
+            InitializeComponent();
             viewModel = new MainViewModel();
             BindingContext = viewModel;
             TextDice.Text = "Six edge dice";
@@ -31,10 +31,6 @@ namespace Dice.Views
                 viewModel.SwitchOff();
                 TextDice.Text = "Six edge dice";
             }
-        }
-        public void Button_Clicked(object sender, EventArgs e)
-        {
-            DiceLabel.Text = viewModel.dice.Throw();
         }
     }
 }
