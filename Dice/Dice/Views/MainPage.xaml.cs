@@ -16,21 +16,20 @@ namespace Dice.Views
             InitializeComponent();
             viewModel = new MainViewModel();
             BindingContext = viewModel;
-            TextDice.Text = "Six edge dice";
         }
-        private void WallsSwitch_Toggled(object sender, ToggledEventArgs e)
-        {
-
-            if (e.Value == true)
-            {
-                viewModel.SwitchOn();
-                TextDice.Text = "Ten edge dice";
-            }
-            else
-            {
-                viewModel.SwitchOff();
-                TextDice.Text = "Six edge dice";
-            }
-        }
+        //private void WallsSwitch_Toggled(object sender, ToggledEventArgs e)
+        //{
+        //
+        //    if (e.Value == true)
+        //    {
+        //        
+        //        TextDice.Text = "Ten edge dice";
+        //    }
+        //    else
+        //    {
+        //        viewModel.SwitchOff();
+          //      TextDice.Text = "Six edge dice";
+            //}
+        //}
     }
 }

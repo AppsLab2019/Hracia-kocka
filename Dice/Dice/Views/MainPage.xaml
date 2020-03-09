@@ -19,8 +19,7 @@
         </Grid.RowDefinitions>
         <Switch
             x:Name="WallsSwitch"
-            Toggled="WallsSwitch_Toggled"
-            IsToggled="False"
+            IsToggled="{Binding SwitchProperty}"
             OnColor="Green"
             ThumbColor="Blue"
             Margin="250,0,50,0"   
@@ -33,6 +32,7 @@
             HorizontalOptions="Center"
             TextColor="Black"
             Margin="0,0,0,50"
+            Text="{Binding SwitchToNameDice}"
             />
         <Button
             Grid.Row="3"
