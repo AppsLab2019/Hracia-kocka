@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
-using System.Windows.Input;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Diagnostics;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Dice.ViewModels
 {
@@ -43,6 +39,7 @@ namespace Dice.ViewModels
 
                 switchMethod = value;
                 Switch();
+                //NameDice();
                 OnPropertyChanged();
             }
         }
@@ -56,7 +53,7 @@ namespace Dice.ViewModels
                 NameDice();
                 OnPropertyChanged();
             }
-        }
+        }      
         public ICommand Tapcommand { get; }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -68,21 +65,18 @@ namespace Dice.ViewModels
         public void Switch()
         {
             if (switchMethod == true)
+            {
                 dice = new Models.Dice(6);
+            }
             else
                 dice = new Models.Dice(10);
         }
         public void NameDice()
-
+        {
+            if (switchMethod == true)
             {
-                if (switchToNameDice == true)
-                {
-                    nameDice = "Six edge dice";
-                }
-                else
-                {
-                    nameDice = "Ten edge dice";
-                }
+                nameDice = "test";
             }
+        }    
     }
 }
