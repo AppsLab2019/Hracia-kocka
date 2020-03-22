@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using Dice.Models;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -7,11 +9,11 @@ namespace Dice.ViewModels
 {
     class MainViewModel : INotifyPropertyChanged
     {
-        public Models.Dice dice;
+        private Models.Dice dice;
         private string randomNumber;
         private bool switchMethod;
-        private string nameDice;
-        private bool switchToNameDice;
+        private Models.SixEdgeDiceDictionary sixDictionary;
+        private string dictionaryProperty;
 
 
         public MainViewModel()
@@ -39,21 +41,23 @@ namespace Dice.ViewModels
 
                 switchMethod = value;
                 Switch();
-                //NameDice();
                 OnPropertyChanged();
             }
         }
-        public bool SwitchToNameDice
+        public string DictionaryProperty
         {
-            get => switchToNameDice;
+            get => dictionaryProperty;
             set
             {
-                if (Equals(switchToNameDice, value)) return;
-                switchToNameDice = value;
-                NameDice();
-                OnPropertyChanged();
+                if (Equals(dictionaryProperty, value)) return;
+                dictionaryProperty = value;
+                if (Equals(randomNumber, value)) return;
+                randomNumber = value;
+                
+                SixDictionary();
+
             }
-        }      
+        }
         public ICommand Tapcommand { get; }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -71,12 +75,12 @@ namespace Dice.ViewModels
             else
                 dice = new Models.Dice(10);
         }
-        public void NameDice()
+        public void SixDictionary()
         {
-            if (switchMethod == true)
+            if(switchMethod == true)
             {
-                nameDice = "test";
+                sixDictionary = new SixEdgeDiceDictionary();
             }
-        }    
+        }   
     }
 }

@@ -61,12 +61,12 @@
             HorizontalTextAlignment="Center"
             VerticalTextAlignment="Center"
             />
-        <!--<image x:Name="DicePic" Source="{Binding ActualPicture}" Grid.Row="1"/>
-        <image source="/drawable/dice2.jpg" grid.row="1"/>
-        <image source="/drawable/dice3.jpg" grid.row="1"/>
-        <image source="/drawable/dice4.jpg" grid.row="1"/>
-        <image source="/drawable/dice5.jpg" grid.row="1"/>
-        <image source="/drawable/dice6.jpg" grid.row="1"/>-->
+        <Image x:Name="ActualPicture" Source="{Binding DictionaryProperty}" Grid.Row="1"/>
+        <!--<Image Source="/drawable/dice2.jpg" Grid.Row="1"/>
+        <Image Source="/drawable/dice3.jpg" Grid.Row="1"/>
+        <Image Source="/drawable/dice4.jpg" Grid.Row="1"/>
+        <Image Source="/drawable/dice5.jpg" Grid.Row="1"/>
+        <Image Source="/drawable/dice6.jpg" Grid.Row="1"/>-->
         
     </Grid>
 
