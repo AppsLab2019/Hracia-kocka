@@ -1,73 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewmodels="clr-namespace:Dice.ViewModels"
-             mc:Ignorable="d"
-             x:Class="Dice.Views.MainPage">
+<ContentPage
+    x:Class="Dice.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:Dice.ViewModels"
+    mc:Ignorable="d">
     <ContentPage.BindingContext>
-        <viewmodels:MainViewModel/>
+        <viewmodels:MainViewModel />
     </ContentPage.BindingContext>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Switch
             x:Name="WallsSwitch"
+            Margin="250,0,50,0"
             IsToggled="{Binding SwitchProperty}"
             OnColor="Green"
-            ThumbColor="Blue"
-            Margin="250,0,50,0"   
-           />
+            ThumbColor="Blue" />
         <Label
             x:Name="TextDice"
             Grid.Row="1"
-            FontSize="Medium"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            TextColor="Black"
             Margin="0,0,0,50"
+            FontSize="Medium"
+            HorizontalOptions="Center"
             Text="{Binding SwitchToNameDice}"
-            />
+            TextColor="Black"
+            VerticalOptions="Center" />
+
+        <Image
+            Grid.Row="1"
+            HeightRequest="270"
+            Source="{Binding Picture}"
+            WidthRequest="270" />
+
         <Button
             Grid.Row="3"
-            HorizontalOptions="Fill"
-            VerticalOptions="Center"
+            Margin="30,0,30,50"
+            BackgroundColor="LightBlue"
             BorderWidth="50"
             Command="{Binding Tapcommand}"
-            Text="Roll Dice" 
             CornerRadius="20"
-            HeightRequest="100"
             FontSize="Large"
-            BackgroundColor="LightBlue"
-            Margin="30,0,30,50"
-            />
-        <Label
-            x:Name="DiceLabel"
-            Grid.Row="2"
-            TextColor="Black"
-            Text="{Binding RandomNumber}"
-            HorizontalOptions="Center"
-            FontSize="Header" 
-            BackgroundColor="Gray"
-            Margin="20,20,20,50 "
-            WidthRequest="270"
-            HeightRequest="270"
-            HorizontalTextAlignment="Center"
-            VerticalTextAlignment="Center"
-            />
-        <Image x:Name="ActualPicture" Source="{Binding DictionaryProperty}" Grid.Row="1"/>
+            HeightRequest="100"
+            HorizontalOptions="Fill"
+            Text="Roll Dice"
+            VerticalOptions="Center" />
+
         <!--<Image Source="/drawable/dice2.jpg" Grid.Row="1"/>
         <Image Source="/drawable/dice3.jpg" Grid.Row="1"/>
         <Image Source="/drawable/dice4.jpg" Grid.Row="1"/>
         <Image Source="/drawable/dice5.jpg" Grid.Row="1"/>
         <Image Source="/drawable/dice6.jpg" Grid.Row="1"/>-->
-        
+
     </Grid>
 
 </ContentPage>

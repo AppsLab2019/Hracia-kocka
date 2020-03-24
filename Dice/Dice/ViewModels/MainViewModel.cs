@@ -1,5 +1,4 @@
-﻿using Dice.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -10,19 +9,28 @@ namespace Dice.ViewModels
     class MainViewModel : INotifyPropertyChanged
     {
         private Models.Dice dice;
-        private string randomNumber;
+        private int randomNumber;
         private bool switchMethod;
-        private Models.SixEdgeDiceDictionary sixDictionary;
-        private string dictionaryProperty;
-
+        private string picture;
+        private readonly Dictionary<int, string> pictures;
 
         public MainViewModel()
         {
             dice = new Models.Dice(6);
             Tapcommand = new Command(Tap);
             switchMethod = true;
+            pictures = new Dictionary<int, string>
+            {
+                { 1, "Dice1.jpg" },
+                { 2, "Dice2.jpg" },
+                { 3, "Dice3.jpg" },
+                { 4, "Dice4.jpg" },
+                { 5, "Dice5.jpg" },
+                { 6, "Dice6.jpg" },
+            };
         }
-        public string RandomNumber
+
+        public int RandomNumber
         {
             get => randomNumber;
             private set
@@ -32,6 +40,7 @@ namespace Dice.ViewModels
                 OnPropertyChanged();
             }
         }
+        
         public bool SwitchProperty
         {
             get => switchMethod;
@@ -44,43 +53,38 @@ namespace Dice.ViewModels
                 OnPropertyChanged();
             }
         }
-        public string DictionaryProperty
+
+        public string Picture
         {
-            get => dictionaryProperty;
+            get => picture;
             set
             {
-                if (Equals(dictionaryProperty, value)) return;
-                dictionaryProperty = value;
-                if (Equals(randomNumber, value)) return;
-                randomNumber = value;
-                
-                SixDictionary();
-
+                if (Equals(picture, value)) return;
+                picture = value;
+                OnPropertyChanged();
             }
         }
+
         public ICommand Tapcommand { get; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged([CallerMemberName]string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        
         private void Tap()
         {
             RandomNumber = dice.Throw();
+            Picture = pictures[RandomNumber];
         }
+        
         public void Switch()
         {
-            if (switchMethod == true)
+            if (switchMethod)
             {
                 dice = new Models.Dice(6);
             }
             else
                 dice = new Models.Dice(10);
-        }
-        public void SixDictionary()
-        {
-            if(switchMethod == true)
-            {
-                sixDictionary = new SixEdgeDiceDictionary();
-            }
         }   
     }
 }
