@@ -19,12 +19,18 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Switch
-            x:Name="WallsSwitch"
             Margin="250,0,50,0"
-            IsToggled="{Binding SwitchProperty}"
+            IsToggled="{Binding SwitchPropertyForThrow}"
             OnColor="Green"
             ThumbColor="Blue" />
-        <Label
+        <Switch
+            IsToggled="{Binding SwitchPropertyForProcessThrow}"
+            OnColor="Black"
+            ThumbColor="Blue"
+            Grid.Row="1"
+            Margin="250,-75,50,75"
+            />
+        <!--<Label
             x:Name="TextDice"
             Grid.Row="1"
             Margin="0,0,0,50"
@@ -32,10 +38,10 @@
             HorizontalOptions="Center"
             Text="{Binding SwitchToNameDice}"
             TextColor="Black"
-            VerticalOptions="Center" />
+            VerticalOptions="Center" />-->
 
         <Image
-            Grid.Row="1"
+            Grid.Row="2"
             HeightRequest="270"
             Source="{Binding Picture}"
             WidthRequest="270" />

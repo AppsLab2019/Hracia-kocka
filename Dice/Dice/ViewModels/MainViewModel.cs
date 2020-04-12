@@ -12,14 +12,15 @@ namespace Dice.ViewModels
         private int randomNumber;
         private bool switchMethod;
         private string picture;
-        private readonly Dictionary<int, string> pictures;
+        private readonly Dictionary<int, string> picturesSixEdgeDice;
+        private readonly Dictionary<int, string> picturesTenEdgeDice;
+        private bool switchPropertyForProcessThrow;
+        private Models.DetectShake shake;
 
         public MainViewModel()
         {
-            dice = new Models.Dice(6);
-            Tapcommand = new Command(Tap);
             switchMethod = true;
-            pictures = new Dictionary<int, string>
+            picturesSixEdgeDice = new Dictionary<int, string>
             {
                 { 1, "Dice1.jpg" },
                 { 2, "Dice2.jpg" },
@@ -28,12 +29,25 @@ namespace Dice.ViewModels
                 { 5, "Dice5.jpg" },
                 { 6, "Dice6.jpg" },
             };
+            picturesTenEdgeDice = new Dictionary<int, string>
+            {
+                {1,"TenSidedDice1.png" },
+                {2,"TenSidedDice2.png" },
+                {3,"TenSidedDice3.png" },
+                {4,"TenSidedDice4.png" },
+                {5,"TenSidedDice5.png" },
+                {6,"TenSidedDice6.png" },
+                {7,"TenSidedDice7.png" },
+                {8,"TenSidedDice8.png" },
+                {9,"TenSidedDice9.png" },
+                {10,"TenSidedDice10.png" },
+            };
         }
 
         public int RandomNumber
         {
             get => randomNumber;
-            private set
+            set
             {
                 if (Equals(randomNumber, value)) return;
                 randomNumber = value;
@@ -41,7 +55,7 @@ namespace Dice.ViewModels
             }
         }
         
-        public bool SwitchProperty
+        public bool SwitchPropertyForThrow
         {
             get => switchMethod;
             set
@@ -49,7 +63,7 @@ namespace Dice.ViewModels
                 if (Equals(switchMethod, value)) return;
 
                 switchMethod = value;
-                Switch();
+                SwitchForThrow();
                 OnPropertyChanged();
             }
         }
@@ -64,27 +78,47 @@ namespace Dice.ViewModels
                 OnPropertyChanged();
             }
         }
+        public bool SwitchPropertyForProcessThrow
+        {
+            get => switchPropertyForProcessThrow;
+            set
+            {
+                if (Equals(switchPropertyForProcessThrow, value)) return;
+                switchPropertyForProcessThrow = value;
+                SwitchForProcessThrow();
+                OnPropertyChanged();
+            }
 
-        public ICommand Tapcommand { get; }
+        }
+
+        public ICommand Tapcommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged([CallerMemberName]string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         
-        private void Tap()
+        public void Tap()
         {
             RandomNumber = dice.Throw();
-            Picture = pictures[RandomNumber];
+            if (switchMethod == true)
+                Picture = picturesSixEdgeDice[RandomNumber];
+            else
+                Picture = picturesTenEdgeDice[RandomNumber];
         }
-        
-        public void Switch()
+
+        public void SwitchForThrow()
         {
             if (switchMethod)
-            {
                 dice = new Models.Dice(6);
-            }
             else
                 dice = new Models.Dice(10);
-        }   
+        }
+        public void SwitchForProcessThrow()
+        {
+            if (switchPropertyForProcessThrow == true)
+                Tapcommand = new Command(Tap);
+            else
+                shake = new Models.DetectShake();
+        }
     }
 }
