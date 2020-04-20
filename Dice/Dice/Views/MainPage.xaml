@@ -23,13 +23,12 @@
             IsToggled="{Binding SwitchPropertyForThrow}"
             OnColor="Green"
             ThumbColor="Blue" />
-        <Switch
+        <!--<Switch
             IsToggled="{Binding SwitchPropertyForProcessThrow}"
             OnColor="Black"
             ThumbColor="Blue"
             Grid.Row="1"
-            Margin="250,-75,50,75"
-            />
+            Margin="250,-75,50,75"/>-->
         <!--<Label
             x:Name="TextDice"
             Grid.Row="1"
