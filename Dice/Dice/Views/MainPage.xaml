@@ -23,21 +23,12 @@
             IsToggled="{Binding SwitchPropertyForThrow}"
             OnColor="Green"
             ThumbColor="Blue" />
-        <!--<Switch
+        <Switch
             IsToggled="{Binding SwitchPropertyForProcessThrow}"
             OnColor="Black"
             ThumbColor="Blue"
             Grid.Row="1"
-            Margin="250,-75,50,75"/>-->
-        <!--<Label
-            x:Name="TextDice"
-            Grid.Row="1"
-            Margin="0,0,0,50"
-            FontSize="Medium"
-            HorizontalOptions="Center"
-            Text="{Binding SwitchToNameDice}"
-            TextColor="Black"
-            VerticalOptions="Center" />-->
+            Margin="250,-75,50,75"/>
 
         <Image
             Grid.Row="2"
@@ -57,13 +48,6 @@
             HorizontalOptions="Fill"
             Text="Roll Dice"
             VerticalOptions="Center" />
-
-        <!--<Image Source="/drawable/dice2.jpg" Grid.Row="1"/>
-        <Image Source="/drawable/dice3.jpg" Grid.Row="1"/>
-        <Image Source="/drawable/dice4.jpg" Grid.Row="1"/>
-        <Image Source="/drawable/dice5.jpg" Grid.Row="1"/>
-        <Image Source="/drawable/dice6.jpg" Grid.Row="1"/>-->
-
     </Grid>
 
 </ContentPage>

@@ -14,8 +14,8 @@ namespace Dice.ViewModels
         private string picture;
         private readonly Dictionary<int, string> picturesSixEdgeDice;
         private readonly Dictionary<int, string> picturesTenEdgeDice;
-        //private bool switchPropertyForProcessThrow;
-        //private Models.DetectShake shake;
+        private bool switchPropertyForProcessThrow;
+        private Models.DetectShake shake;
 
         public MainViewModel()
         {
@@ -80,18 +80,18 @@ namespace Dice.ViewModels
                 OnPropertyChanged();
             }
         }
-        //public bool SwitchPropertyForProcessThrow
-        //{
-        //    get => switchPropertyForProcessThrow;
-        //    set
-        //    {
-        //        if (Equals(switchPropertyForProcessThrow, value)) return;
-        //        switchPropertyForProcessThrow = value;
-        //        SwitchForProcessThrow();
-        //        OnPropertyChanged();
-        //    }
+        public bool SwitchPropertyForProcessThrow
+        {
+            get => switchPropertyForProcessThrow;
+            set
+            {
+                if (Equals(switchPropertyForProcessThrow, value)) return;
+                switchPropertyForProcessThrow = value;
+                SwitchForProcessThrow();
+                OnPropertyChanged();
+            }
 
-        //}
+        }
 
         public ICommand Tapcommand { get; set; }
 
@@ -115,12 +115,12 @@ namespace Dice.ViewModels
             else
                 dice = new Models.Dice(10);
         }
-        //public void SwitchForProcessThrow()
-        //{
-        //    if (switchPropertyForProcessThrow == true)
-        //        Tapcommand = new Command(Tap);
-        //    else
-        //        shake = new Models.DetectShake();
-        //}
+        public void SwitchForProcessThrow()
+        {
+            if (switchPropertyForProcessThrow == true)
+                Tapcommand = new Command(Tap);
+            else
+                shake = new Models.DetectShake();
+        }
     }
 }
