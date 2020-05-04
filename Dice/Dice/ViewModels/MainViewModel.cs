@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Dice.ViewModels
@@ -15,13 +17,16 @@ namespace Dice.ViewModels
         private readonly Dictionary<int, string> picturesSixEdgeDice;
         private readonly Dictionary<int, string> picturesTenEdgeDice;
         private bool switchPropertyForProcessThrow;
-        private Models.DetectShake shake;
+        //private string lastThrow1;
+        private readonly List<int> databazeThrows;
+        //private string propertyDatabazeLastThrows;
 
         public MainViewModel()
         {
             Tapcommand = new Command(Tap);
             dice = new Models.Dice(6);
             switchMethod = true;
+            databazeThrows = new List<int>();
             picturesSixEdgeDice = new Dictionary<int, string>
             {
                 { 1, "Dice1.jpg" },
@@ -44,6 +49,9 @@ namespace Dice.ViewModels
                 {9,"TenSidedDice9.png" },
                 {10,"TenSidedDice10.png" },
             };
+
+            Accelerometer.Start(SensorSpeed.Game);
+            Accelerometer.ShakeDetected += Accelerometer_ShakeDetected;
         }
 
         public int RandomNumber
@@ -87,11 +95,22 @@ namespace Dice.ViewModels
             {
                 if (Equals(switchPropertyForProcessThrow, value)) return;
                 switchPropertyForProcessThrow = value;
-                SwitchForProcessThrow();
                 OnPropertyChanged();
             }
 
         }
+        //public string PropertyDatabazeLastThrows
+        //{
+        //    get => propertyDatabazeLastThrows;
+        //    set
+        //    {
+        //        if (Equals(propertyDatabazeLastThrows, value)) return;
+        //        propertyDatabazeLastThrows = value;
+        //        DatabazeLastThrows();
+        //        Tap();
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         public ICommand Tapcommand { get; set; }
 
@@ -103,9 +122,14 @@ namespace Dice.ViewModels
         {
             RandomNumber = dice.Throw();
             if (switchMethod == true)
+            {
                 Picture = picturesSixEdgeDice[RandomNumber];
+            }
             else
+            {
                 Picture = picturesTenEdgeDice[RandomNumber];
+            }
+            databazeThrows.Add(RandomNumber);
         }
 
         public void SwitchForThrow()
@@ -115,12 +139,16 @@ namespace Dice.ViewModels
             else
                 dice = new Models.Dice(10);
         }
-        public void SwitchForProcessThrow()
+
+        private void Accelerometer_ShakeDetected(object sender, System.EventArgs e)
         {
-            if (switchPropertyForProcessThrow == true)
-                Tapcommand = new Command(Tap);
-            else
-                shake = new Models.DetectShake();
+            if (SwitchPropertyForProcessThrow)
+                Tap();
         }
+
+        //public void DatabazeLastThrows()
+        //{
+        //    lastThrow1 = databazeThrows.Last().ToString();
+        //}
     }
 }

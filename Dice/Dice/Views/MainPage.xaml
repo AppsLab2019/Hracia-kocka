@@ -47,7 +47,25 @@
             HeightRequest="100"
             HorizontalOptions="Fill"
             Text="Roll Dice"
-            VerticalOptions="Center" />
+            VerticalOptions="Center">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button"
+                             Value="True"
+                             Binding="{Binding SwitchPropertyForProcessThrow}">
+                    <Setter Property="IsVisible" Value="False"/>
+                </DataTrigger>
+                <DataTrigger TargetType="Button"
+                             Value="False"
+                             Binding="{Binding SwitchPropertyForProcessThrow}">
+                    <Setter Property="IsVisible" Value="True"/>
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+        <!--<Label
+            Grid.Row="4"
+            Text="{Binding PropertyDatabazeLastThrows}"
+            TextColor="Black"
+            />-->
     </Grid>
 
 </ContentPage>
