@@ -17,16 +17,14 @@ namespace Dice.ViewModels
         private readonly Dictionary<int, string> picturesSixEdgeDice;
         private readonly Dictionary<int, string> picturesTenEdgeDice;
         private bool switchPropertyForProcessThrow;
-        //private string lastThrow1;
-        private readonly List<int> databazeThrows;
-        //private string propertyDatabazeLastThrows;
+        private int propertyDatabazeLastThrows;
+        private readonly List<int> databazeLastThrows = new List<int>();
 
         public MainViewModel()
         {
             Tapcommand = new Command(Tap);
             dice = new Models.Dice(6);
             switchMethod = true;
-            databazeThrows = new List<int>();
             picturesSixEdgeDice = new Dictionary<int, string>
             {
                 { 1, "Dice1.jpg" },
@@ -49,6 +47,7 @@ namespace Dice.ViewModels
                 {9,"TenSidedDice9.png" },
                 {10,"TenSidedDice10.png" },
             };
+            databazeLastThrows.Add(RandomNumber);
 
             Accelerometer.Start(SensorSpeed.Game);
             Accelerometer.ShakeDetected += Accelerometer_ShakeDetected;
@@ -99,18 +98,17 @@ namespace Dice.ViewModels
             }
 
         }
-        //public string PropertyDatabazeLastThrows
-        //{
-        //    get => propertyDatabazeLastThrows;
-        //    set
-        //    {
-        //        if (Equals(propertyDatabazeLastThrows, value)) return;
-        //        propertyDatabazeLastThrows = value;
-        //        DatabazeLastThrows();
-        //        Tap();
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public int PropertyDatabazeLastThrows
+        {
+            get => propertyDatabazeLastThrows;
+            set
+            {
+                if (Equals(propertyDatabazeLastThrows, value)) return;
+                propertyDatabazeLastThrows = value;
+                DatabazeLastThrows();
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand Tapcommand { get; set; }
 
@@ -129,7 +127,6 @@ namespace Dice.ViewModels
             {
                 Picture = picturesTenEdgeDice[RandomNumber];
             }
-            databazeThrows.Add(RandomNumber);
         }
 
         public void SwitchForThrow()
@@ -146,9 +143,9 @@ namespace Dice.ViewModels
                 Tap();
         }
 
-        //public void DatabazeLastThrows()
-        //{
-        //    lastThrow1 = databazeThrows.Last().ToString();
-        //}
+        public void DatabazeLastThrows()
+        {
+            PropertyDatabazeLastThrows = databazeLastThrows.Last();
+        }
     }
 }

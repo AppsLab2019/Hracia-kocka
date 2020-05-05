@@ -23,6 +23,12 @@
             IsToggled="{Binding SwitchPropertyForThrow}"
             OnColor="Green"
             ThumbColor="Blue" />
+        <Label
+            Grid.Column="0"
+            Text="{Binding PropertyDatabazeLastThrows}"
+            TextColor="Black"
+            Margin="50,100,250,0"
+            />
         <Switch
             IsToggled="{Binding SwitchPropertyForProcessThrow}"
             OnColor="Black"
@@ -61,11 +67,6 @@
                 </DataTrigger>
             </Button.Triggers>
         </Button>
-        <!--<Label
-            Grid.Row="4"
-            Text="{Binding PropertyDatabazeLastThrows}"
-            TextColor="Black"
-            />-->
     </Grid>
 
 </ContentPage>
