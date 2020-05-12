@@ -16,9 +16,7 @@ namespace Dice.ViewModels
         private string picture;
         private readonly Dictionary<int, string> picturesSixEdgeDice;
         private readonly Dictionary<int, string> picturesTenEdgeDice;
-        private bool switchPropertyForProcessThrow;
-        private int propertyDatabazeLastThrows;
-        private readonly List<int> databazeLastThrows = new List<int>();
+        private int[] throws;
 
         public MainViewModel()
         {
@@ -47,8 +45,7 @@ namespace Dice.ViewModels
                 {9,"TenSidedDice9.png" },
                 {10,"TenSidedDice10.png" },
             };
-            databazeLastThrows.Add(RandomNumber);
-
+            
             Accelerometer.Start(SensorSpeed.Game);
             Accelerometer.ShakeDetected += Accelerometer_ShakeDetected;
         }
@@ -77,44 +74,19 @@ namespace Dice.ViewModels
             }
         }
 
-        public string Picture
-        {
-            get => picture;
-            set
-            {
-                if (Equals(picture, value)) return;
-                picture = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool SwitchPropertyForProcessThrow
-        {
-            get => switchPropertyForProcessThrow;
-            set
-            {
-                if (Equals(switchPropertyForProcessThrow, value)) return;
-                switchPropertyForProcessThrow = value;
-                OnPropertyChanged();
-            }
-
-        }
-        public int PropertyDatabazeLastThrows
-        {
-            get => propertyDatabazeLastThrows;
-            set
-            {
-                if (Equals(propertyDatabazeLastThrows, value)) return;
-                propertyDatabazeLastThrows = value;
-                DatabazeLastThrows();
-                OnPropertyChanged();
-            }
-        }
-
         public ICommand Tapcommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged([CallerMemberName]string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        
+        public void SwitchForThrow()
+        {
+            if (switchMethod)
+                dice = new Models.Dice(6);
+            else
+                dice = new Models.Dice(10);
+        }
         
         public void Tap()
         {
@@ -128,24 +100,37 @@ namespace Dice.ViewModels
                 Picture = picturesTenEdgeDice[RandomNumber];
             }
         }
-
-        public void SwitchForThrow()
+        
+        public string Picture
         {
-            if (switchMethod)
-                dice = new Models.Dice(6);
-            else
-                dice = new Models.Dice(10);
+            get => picture;
+            set
+            {
+                if (Equals(picture, value)) return;
+                picture = value;
+                OnPropertyChanged();
+            }
         }
 
         private void Accelerometer_ShakeDetected(object sender, System.EventArgs e)
         {
-            if (SwitchPropertyForProcessThrow)
                 Tap();
         }
-
-        public void DatabazeLastThrows()
+        
+        
+        public int[] PropertyHistoryLastForThrows
         {
-            PropertyDatabazeLastThrows = databazeLastThrows.Last();
+            get => throws;
+            set
+            {
+                if (Equals(throws, value)) return;
+                throws = value;
+                OnPropertyChanged();
+            }
+        }
+        public void HistoryForLastThrows()
+        {
+            throws = new int[RandomNumber]; 
         }
     }
 }

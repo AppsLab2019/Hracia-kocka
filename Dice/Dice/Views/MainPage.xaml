@@ -25,16 +25,9 @@
             ThumbColor="Blue" />
         <Label
             Grid.Column="0"
-            Text="{Binding PropertyDatabazeLastThrows}"
+            Text="{Binding PropertyHistoryLastForThrows}"
             TextColor="Black"
-            Margin="50,100,250,0"
             />
-        <Switch
-            IsToggled="{Binding SwitchPropertyForProcessThrow}"
-            OnColor="Black"
-            ThumbColor="Blue"
-            Grid.Row="1"
-            Margin="250,-75,50,75"/>
 
         <Image
             Grid.Row="2"
@@ -54,18 +47,6 @@
             HorizontalOptions="Fill"
             Text="Roll Dice"
             VerticalOptions="Center">
-            <Button.Triggers>
-                <DataTrigger TargetType="Button"
-                             Value="True"
-                             Binding="{Binding SwitchPropertyForProcessThrow}">
-                    <Setter Property="IsVisible" Value="False"/>
-                </DataTrigger>
-                <DataTrigger TargetType="Button"
-                             Value="False"
-                             Binding="{Binding SwitchPropertyForProcessThrow}">
-                    <Setter Property="IsVisible" Value="True"/>
-                </DataTrigger>
-            </Button.Triggers>
         </Button>
     </Grid>
 
