@@ -16,7 +16,8 @@ namespace Dice.ViewModels
         private string picture;
         private readonly Dictionary<int, string> picturesSixEdgeDice;
         private readonly Dictionary<int, string> picturesTenEdgeDice;
-        private int[] throws;
+        private List<int> throws;
+        private int[] lastThrows;
 
         public MainViewModel()
         {
@@ -45,7 +46,8 @@ namespace Dice.ViewModels
                 {9,"TenSidedDice9.png" },
                 {10,"TenSidedDice10.png" },
             };
-            
+            throws = new List<int>();
+
             Accelerometer.Start(SensorSpeed.Game);
             Accelerometer.ShakeDetected += Accelerometer_ShakeDetected;
         }
@@ -99,8 +101,9 @@ namespace Dice.ViewModels
             {
                 Picture = picturesTenEdgeDice[RandomNumber];
             }
+            HistoryForLastThrows();
         }
-        
+
         public string Picture
         {
             get => picture;
@@ -116,21 +119,24 @@ namespace Dice.ViewModels
         {
                 Tap();
         }
-        
-        
+
+
         public int[] PropertyHistoryLastForThrows
         {
-            get => throws;
+            get => lastThrows;
             set
             {
-                if (Equals(throws, value)) return;
-                throws = value;
+                if (Equals(lastThrows, value)) return;
+                lastThrows = value;
                 OnPropertyChanged();
             }
         }
         public void HistoryForLastThrows()
         {
-            throws = new int[RandomNumber]; 
+            throws.Add(RandomNumber);
+            if (throws.Count() > 1)
+                throws.Last();
+           //lastThrows = throws.ToArray();
         }
     }
 }
