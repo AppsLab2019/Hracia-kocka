@@ -17,7 +17,7 @@ namespace Dice.ViewModels
         private readonly Dictionary<int, string> picturesSixEdgeDice;
         private readonly Dictionary<int, string> picturesTenEdgeDice;
         private List<int> throws;
-        private int[] lastThrows;
+        private string lastThrows;
 
         public MainViewModel()
         {
@@ -101,7 +101,7 @@ namespace Dice.ViewModels
             {
                 Picture = picturesTenEdgeDice[RandomNumber];
             }
-            HistoryForLastThrows();
+            AddLastThrowToHistory();
         }
 
         public string Picture
@@ -121,7 +121,7 @@ namespace Dice.ViewModels
         }
 
 
-        public int[] PropertyHistoryLastForThrows
+        public string PropertyHistoryLastForThrows
         {
             get => lastThrows;
             set
@@ -131,12 +131,12 @@ namespace Dice.ViewModels
                 OnPropertyChanged();
             }
         }
-        public void HistoryForLastThrows()
+        public void AddLastThrowToHistory()
         {
             throws.Add(RandomNumber);
-            if (throws.Count() > 1)
-                throws.Last();
-           //lastThrows = throws.ToArray();
+            if (throws.Count > 3)
+                throws.RemoveAt(0);
+            PropertyHistoryLastForThrows = string.Join(", ", throws); 
         }
     }
 }
