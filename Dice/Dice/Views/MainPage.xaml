@@ -24,8 +24,9 @@
             ThumbColor="Blue"
             Margin="0,0,50,0"/>
         <Label
-            Margin="20,50,250,50"
-            Text="{Binding PropertyHistoryLastForThrows}"
+            Margin="20,50,190,50"
+            FontSize="Large"
+            Text="{Binding PropertyHistoryLastForThrows, StringFormat='Last 3 throws: {0}'}"
             TextColor="Black"
             />
 
