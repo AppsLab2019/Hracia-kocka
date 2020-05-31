@@ -18,6 +18,8 @@ namespace Dice.ViewModels
         private readonly Dictionary<int, string> picturesTenEdgeDice;
         private List<int> throws;
         private string lastThrows;
+        private string sixEdgeDice;
+        private string tenEdgeDice;
 
         public MainViewModel()
         {
@@ -93,15 +95,10 @@ namespace Dice.ViewModels
         public void Tap()
         {
             RandomNumber = dice.Throw();
-            if (switchMethod == true)
-            {
-                Picture = picturesSixEdgeDice[RandomNumber];
-            }
-            else
-            {
-                Picture = picturesTenEdgeDice[RandomNumber];
-            }
             AddLastThrowToHistory();
+            SixEdgeDice();
+            TenEdgeDice();
+
         }
 
         public string Picture
@@ -138,5 +135,36 @@ namespace Dice.ViewModels
                 throws.RemoveAt(0);
             PropertyHistoryLastForThrows = string.Join(", ", throws); 
         }
+        private void SixEdgeDice()
+        {
+            PropertySixEdgeDice = Picture;
+            Picture = picturesSixEdgeDice[RandomNumber];
+        }
+        public string PropertySixEdgeDice
+        {
+            get => sixEdgeDice;
+            set
+            {
+                if (Equals(sixEdgeDice, value)) return;
+                sixEdgeDice = value;
+                OnPropertyChanged();
+            }
+        }
+        private void TenEdgeDice()
+        {
+            PropertyTenEdgeDice = Picture;
+            Picture = picturesTenEdgeDice[RandomNumber];
+        }
+        public string PropertyTenEdgeDice
+        {
+            get => tenEdgeDice;
+            set
+            {
+                if (Equals(tenEdgeDice, value)) return;
+                tenEdgeDice = value;
+                OnPropertyChanged();
+            }
+        }
+
     }
 }

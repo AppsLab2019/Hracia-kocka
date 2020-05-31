@@ -6,11 +6,16 @@
        xmlns:local="clr-namespace:Dice.Views"
        mc:Ignorable="d"
              x:Class="Dice.AppShell">
-    <ShellItem>
-        <ShellSection>
-            <ShellContent>
-                <local:MainPage/>
-            </ShellContent>
-        </ShellSection>
-    </ShellItem>
+             
+    <FlyoutItem Title="Option dice"
+                FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Six edge dice"
+                      Icon="Dice6.jpg">
+            <local:SixEdgeDice/>
+        </ShellContent>
+        <ShellContent Title="Ten edge dice"
+                      Icon="TenSidedDice9.png">
+            <local:TenEdgeDice/>
+        </ShellContent>
+    </FlyoutItem>
 </Shell>

@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="Dice.Views.MainPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewmodels="clr-namespace:Dice.ViewModels"
-    mc:Ignorable="d">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:viewModels="clr-namespace:Dice.ViewModels"
+       mc:Ignorable="d"
+             x:Class="Dice.Views.SixEdgeDice">
     <ContentPage.BindingContext>
-        <viewmodels:MainViewModel />
+        <viewModels:MainViewModel/>
     </ContentPage.BindingContext>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -18,22 +16,16 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <!--<Switch
-            IsToggled="{Binding SwitchPropertyForThrow}"
-            OnColor="Green"
-            ThumbColor="Blue"
-            Margin="0,0,50,0"/>
         <Label
             Margin="20,50,190,50"
             FontSize="Large"
             Text="{Binding PropertyHistoryLastForThrows, StringFormat='Last 3 throws: {0}'}"
-            TextColor="Black"
-            />
+            TextColor="Black" />
 
         <Image
             Grid.Row="2"
             HeightRequest="270"
-            Source="{Binding Picture}"
+            Source="{Binding PropertySixEdgeDice}"
             WidthRequest="270" />
 
         <Button
@@ -48,7 +40,8 @@
             HorizontalOptions="Fill"
             Text="Roll Dice"
             VerticalOptions="Center">
-        </Button>-->
+        </Button>
     </Grid>
+
 
 </ContentPage>
