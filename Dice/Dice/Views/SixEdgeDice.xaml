@@ -7,7 +7,7 @@
        mc:Ignorable="d"
              x:Class="Dice.Views.SixEdgeDice">
     <ContentPage.BindingContext>
-        <viewModels:MainViewModel/>
+        <viewModels:SixEdgeDiceViewModel/>
     </ContentPage.BindingContext>
     <Grid>
         <Grid.RowDefinitions>

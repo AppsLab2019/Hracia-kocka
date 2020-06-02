@@ -17,5 +17,9 @@
                       Icon="TenSidedDice9.png">
             <local:TenEdgeDice/>
         </ShellContent>
+        <ShellContent Title="Coin"
+                      Icon="CoinSymbol.jpg">
+            <local:Coin/>
+        </ShellContent>
     </FlyoutItem>
 </Shell>
