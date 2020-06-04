@@ -5812,40 +5812,52 @@ namespace Dice.Droid
 			public const int notify_panel_notification_icon_bg = 2131165307;
 			
 			// aapt resource value: 0x7F07007C
-			public const int TenSidedDice1 = 2131165308;
+			public const int OpenLabIcon = 2131165308;
 			
 			// aapt resource value: 0x7F07007D
-			public const int TenSidedDice10 = 2131165309;
+			public const int Paper = 2131165309;
 			
 			// aapt resource value: 0x7F07007E
-			public const int TenSidedDice2 = 2131165310;
+			public const int Scissors = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int TenSidedDice3 = 2131165311;
+			public const int Stone = 2131165311;
 			
 			// aapt resource value: 0x7F070080
-			public const int TenSidedDice4 = 2131165312;
+			public const int TenSidedDice1 = 2131165312;
 			
 			// aapt resource value: 0x7F070081
-			public const int TenSidedDice5 = 2131165313;
+			public const int TenSidedDice10 = 2131165313;
 			
 			// aapt resource value: 0x7F070082
-			public const int TenSidedDice6 = 2131165314;
+			public const int TenSidedDice2 = 2131165314;
 			
 			// aapt resource value: 0x7F070083
-			public const int TenSidedDice7 = 2131165315;
+			public const int TenSidedDice3 = 2131165315;
 			
 			// aapt resource value: 0x7F070084
-			public const int TenSidedDice8 = 2131165316;
+			public const int TenSidedDice4 = 2131165316;
 			
 			// aapt resource value: 0x7F070085
-			public const int TenSidedDice9 = 2131165317;
+			public const int TenSidedDice5 = 2131165317;
 			
 			// aapt resource value: 0x7F070086
-			public const int tooltip_frame_dark = 2131165318;
+			public const int TenSidedDice6 = 2131165318;
 			
 			// aapt resource value: 0x7F070087
-			public const int tooltip_frame_light = 2131165319;
+			public const int TenSidedDice7 = 2131165319;
+			
+			// aapt resource value: 0x7F070088
+			public const int TenSidedDice8 = 2131165320;
+			
+			// aapt resource value: 0x7F070089
+			public const int TenSidedDice9 = 2131165321;
+			
+			// aapt resource value: 0x7F07008A
+			public const int tooltip_frame_dark = 2131165322;
+			
+			// aapt resource value: 0x7F07008B
+			public const int tooltip_frame_light = 2131165323;
 			
 			static Drawable()
 			{

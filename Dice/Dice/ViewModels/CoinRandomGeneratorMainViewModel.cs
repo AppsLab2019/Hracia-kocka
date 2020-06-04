@@ -9,7 +9,7 @@ namespace Dice.ViewModels
 {
     class CoinRandomGeneratorMainViewModel : INotifyPropertyChanged
     {
-        private readonly Models.Dice dice;
+        private readonly Models.Dice coinn;
         private readonly Dictionary<int, string> coinPictures;
         private readonly List<int> throws;
         private string lastThrows;
@@ -18,7 +18,7 @@ namespace Dice.ViewModels
         public CoinRandomGeneratorMainViewModel()
         {
             Tapcommand = new Command(Tap);
-            dice = new Models.Dice(2);
+            coinn = new Models.Dice(2);
             coinPictures = new Dictionary<int, string>
             {
                 {1,"CoinSymbol.jpg" },
@@ -63,7 +63,7 @@ namespace Dice.ViewModels
 
         public void Tap()
         {
-            RandomNumber = dice.Throw();
+            RandomNumber = coinn.Throw();
             Coin();
             AddLastThrowToHistory();
         }

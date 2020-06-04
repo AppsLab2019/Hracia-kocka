@@ -7,9 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:Dice.ViewModels"
     mc:Ignorable="d">
-    <!--<ContentPage.BindingContext>
-        <viewmodels:MainViewModel />
-    </ContentPage.BindingContext>-->
 
     <Grid>
         <Grid.RowDefinitions>
@@ -18,37 +15,25 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <!--<Switch
-            IsToggled="{Binding SwitchPropertyForThrow}"
-            OnColor="Green"
-            ThumbColor="Blue"
-            Margin="0,0,50,0"/>
+
         <Label
-            Margin="20,50,190,50"
+            Grid.Row="1"
+            Text="WELCOME"
             FontSize="Large"
-            Text="{Binding PropertyHistoryLastForThrows, StringFormat='Last 3 throws: {0}'}"
-            TextColor="Black"
+            TextColor="Blue"
+            Margin="125,50,125,100"
+            HorizontalOptions="Fill"
             />
 
         <Image
             Grid.Row="2"
-            HeightRequest="270"
-            Source="{Binding Picture}"
-            WidthRequest="270" />
-
-        <Button
+            Source="Dice5.jpg"
+            Margin="50,50,50,50"
+            />
+        <Image
+            Source="OpenLabIcon.jpg"
             Grid.Row="3"
-            Margin="30,0,30,50"
-            BackgroundColor="LightBlue"
-            BorderWidth="50"
-            Command="{Binding Tapcommand}"
-            CornerRadius="20"
-            FontSize="Large"
-            HeightRequest="100"
-            HorizontalOptions="Fill"
-            Text="Roll Dice"
-            VerticalOptions="Center">
-        </Button>-->
+            />
     </Grid>
 
 </ContentPage>

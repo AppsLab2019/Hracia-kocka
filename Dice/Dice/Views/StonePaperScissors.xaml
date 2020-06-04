@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewmodels="clr-namespace:Dice.ViewModels"
+             xmlns:ViewModels="clr-namespace:Dice.ViewModels"
              mc:Ignorable="d"
-             x:Class="Dice.Views.Coin"
-             Shell.BackgroundColor="Gold">
+             x:Class="Dice.Views.StonePaperScissors"
+             Shell.BackgroundColor="BlueViolet">
+    
     <ContentPage.BindingContext>
-        <viewmodels:CoinRandomGeneratorMainViewModel />
+        <ViewModels:StonePaperScissorsVM/>
     </ContentPage.BindingContext>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -18,35 +18,39 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label
-            Margin="20,50,190,50"
-            FontSize="Large"
-            Text="{Binding PropertyHistoryLastForThrows, StringFormat='Last 3 throws: {0}'}"
-            TextColor="Black"
-            />
 
+        <Label
+            Text="Tap button or shake mobile"
+            FontSize="Body"
+            TextColor="Black"
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            HeightRequest="20"
+            />
         <Image
             Grid.Row="2"
             HeightRequest="270"
-            Source="{Binding PropertyForCoin}"
+            Source="{Binding PropertyStonePaperScissors}"
             WidthRequest="270" />
 
         <Button
             Grid.Row="3"
             Margin="30,0,30,50"
-            BackgroundColor="LightGoldenrodYellow"
+            BackgroundColor="LightBlue"
             BorderWidth="50"
             Command="{Binding Tapcommand}"
             CornerRadius="20"
             FontSize="Large"
             HeightRequest="100"
             HorizontalOptions="Fill"
-            Text="Roll coin"
+            Text="Throw"
             VerticalOptions="Center">
         </Button>
-        <!--<Image
+        <Image
             Source="OpenLabIcon.jpg"
             Grid.Row="4"
-            />-->
+            WidthRequest="100"
+            />
     </Grid>
 </ContentPage>

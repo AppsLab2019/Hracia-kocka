@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:Dice.ViewModels"
              mc:Ignorable="d"
-             x:Class="Dice.Views.TenEdgeDice">
+             x:Class="Dice.Views.TenEdgeDice"
+             Shell.BackgroundColor="Salmon">
     <ContentPage.BindingContext>
         <viewModels:TenEdgeDiceViewModel/>
     </ContentPage.BindingContext>
@@ -31,15 +32,19 @@
         <Button
             Grid.Row="3"
             Margin="30,0,30,50"
-            BackgroundColor="LightBlue"
+            BackgroundColor="LightSalmon"
             BorderWidth="50"
             Command="{Binding Tapcommand}"
             CornerRadius="20"
             FontSize="Large"
             HeightRequest="100"
             HorizontalOptions="Fill"
-            Text="Roll Dice"
+            Text="Roll dice"
             VerticalOptions="Center">
         </Button>
+        <!--<Image
+            Source="OpenLabIcon.jpg"
+            Grid.Row="4"
+            />-->
     </Grid>
 </ContentPage>
