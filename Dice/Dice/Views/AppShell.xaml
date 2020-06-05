@@ -1,34 +1,34 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-       xmlns:local="clr-namespace:Dice.Views"
-       mc:Ignorable="d"
-             x:Class="Dice.AppShell">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Dice.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:Dice.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
 
     <ShellContent>
-        <local:MainPage/>
+        <local:MainPage />
     </ShellContent>
-    <FlyoutItem Title="Option dice"
-                FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Six edge dice"
-                      Icon="Dice6.jpg">
-            <local:SixEdgeDice/>
+    <FlyoutItem Title="Six edge dice" Icon="Dice6.jpg">
+        <ShellContent Title="Six edge dice" Icon="Dice6.jpg">
+            <local:SixEdgeDice />
         </ShellContent>
-        <ShellContent Title="Ten edge dice"
-                      Icon="TenSidedDice9.png">
-            <local:TenEdgeDice/>
+    </FlyoutItem>
+    <FlyoutItem Title="Ten edge dice" Icon="TenSidedDice9.png">
+        <ShellContent Title="Ten edge dice" Icon="TenSidedDice9.png">
+            <local:TenEdgeDice />
         </ShellContent>
-        <ShellContent Title="Coin"
-                      Icon="CoinSymbol.jpg">
-            <local:Coin/>
+    </FlyoutItem>
+    <FlyoutItem Title="Coin" Icon="CoinSymbol.jpg">
+        <ShellContent Title="Coin" Icon="CoinSymbol.jpg">
+            <local:Coin />
         </ShellContent>
-        <ShellContent
-            Title="Stone, paper, scissors"
-            Icon="Paper.jpg">
-            <local:StonePaperScissors/>
+    </FlyoutItem>
+    <FlyoutItem Title="Stone, paper, scissors" Icon="Paper.jpg">
+        <ShellContent Title="Stone, paper, scissors" Icon="Paper.jpg">
+            <local:StonePaperScissors />
         </ShellContent>
-            
     </FlyoutItem>
 </Shell>
