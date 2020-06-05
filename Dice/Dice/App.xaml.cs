@@ -1,5 +1,6 @@
 ﻿using Dice.Views;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,7 +17,7 @@ namespace Dice
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            //Accelerometer.Start(SensorSpeed.Game);
         }
 
         protected override void OnSleep()

@@ -30,8 +30,7 @@ namespace Dice.ViewModels
                 { 6, "Dice6.jpg" },
             };
             throws = new List<int>();
-
-            Accelerometer.Start(SensorSpeed.Game);
+            
             Accelerometer.ShakeDetected += Accelerometer_ShakeDetected;
         }
 

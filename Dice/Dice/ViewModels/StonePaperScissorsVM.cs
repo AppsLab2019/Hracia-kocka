@@ -30,8 +30,6 @@ namespace Dice.ViewModels
 
         public int RandomNumber { get; set; }
 
-        public string Picture { get; set; }
-
         public string PropertyStonePaperScissors
         {
             get => stonePaperScissors;
@@ -62,8 +60,8 @@ namespace Dice.ViewModels
 
         private void StonePaperScissors()
         {
-            Picture = picturesForStonePaperScissors[RandomNumber];
-            PropertyStonePaperScissors = Picture;
+            PropertyStonePaperScissors= picturesForStonePaperScissors[RandomNumber];
+           
         }
     }
 }

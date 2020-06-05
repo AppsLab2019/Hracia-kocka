@@ -41,7 +41,6 @@ namespace Dice.ViewModels
 
         public int RandomNumber { get; set; }
 
-        public string Picture { get; set; }
 
         public string PropertyHistoryLastForThrows
         {
@@ -93,8 +92,7 @@ namespace Dice.ViewModels
         
         private void TenEdgeDice()
         {
-            Picture = picturesTenEdgeDice[RandomNumber];
-            PropertyTenEdgeDice = Picture;
+            PropertyTenEdgeDice = picturesTenEdgeDice[RandomNumber];
         }
     }
 }
