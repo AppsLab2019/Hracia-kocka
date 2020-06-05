@@ -18,11 +18,11 @@
 
         <Label
             Grid.Row="1"
-            Text="WELCOME"
+            Text="Throw to Win"
             FontSize="Large"
             TextColor="Blue"
-            Margin="125,50,125,100"
-            HorizontalOptions="Fill"
+            Margin="0,50,0,100"
+            HorizontalOptions="Center" 
             />
 
         <Image

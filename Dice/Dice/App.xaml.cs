@@ -17,7 +17,7 @@ namespace Dice
 
         protected override void OnStart()
         {
-            //Accelerometer.Start(SensorSpeed.Game);
+            Accelerometer.Start(SensorSpeed.Game);
         }
 
         protected override void OnSleep()

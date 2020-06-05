@@ -26,8 +26,8 @@
             <local:Coin />
         </ShellContent>
     </FlyoutItem>
-    <FlyoutItem Title="Stone, paper, scissors" Icon="Paper.jpg">
-        <ShellContent Title="Stone, paper, scissors" Icon="Paper.jpg">
+    <FlyoutItem Title="Rock, paper, scissors" Icon="Paper.jpg">
+        <ShellContent Title="Rock, paper, scissors" Icon="Paper.jpg">
             <local:StonePaperScissors />
         </ShellContent>
     </FlyoutItem>

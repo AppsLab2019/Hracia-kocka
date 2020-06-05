@@ -6,37 +6,38 @@
              xmlns:ViewModels="clr-namespace:Dice.ViewModels"
              mc:Ignorable="d"
              x:Class="Dice.Views.StonePaperScissors"
-             Shell.BackgroundColor="BlueViolet">
+             Shell.BackgroundColor="BlueViolet"
+             Title="Rock, paper, scissors">
     
     <ContentPage.BindingContext>
         <ViewModels:StonePaperScissorsVM/>
     </ContentPage.BindingContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Label
             Text="Tap button or shake mobile"
             FontSize="Body"
             TextColor="Black"
-            Grid.Row="1"
             HorizontalOptions="Center"
-            VerticalOptions="Start"
-            HeightRequest="20"
+            VerticalOptions="Center"
+            Margin="0,20,0,65"
             />
         <Image
             Grid.Row="2"
-            HeightRequest="270"
+            HeightRequest="350"
+            WidthRequest="350"
             Source="{Binding PropertyStonePaperScissors}"
-            WidthRequest="270" />
+             />
 
         <Button
             Grid.Row="3"
-            Margin="30,0,30,50"
+            Margin="30,0,30,0"
             BackgroundColor="LightBlue"
             BorderWidth="50"
             Command="{Binding Tapcommand}"
@@ -50,7 +51,8 @@
         <Image
             Source="OpenLabIcon.jpg"
             Grid.Row="4"
-            WidthRequest="100"
+            HeightRequest="50"
+            Margin="0,25,0,25"
             />
     </Grid>
 </ContentPage>

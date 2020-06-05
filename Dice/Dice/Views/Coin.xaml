@@ -6,23 +6,26 @@
              xmlns:viewmodels="clr-namespace:Dice.ViewModels"
              mc:Ignorable="d"
              x:Class="Dice.Views.Coin"
-             Shell.BackgroundColor="Gold">
+             Shell.BackgroundColor="Gold"
+             Title="Coin">
     <ContentPage.BindingContext>
         <viewmodels:CoinRandomGeneratorMainViewModel />
     </ContentPage.BindingContext>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label
-            Margin="20,50,190,50"
-            FontSize="Large"
-            Text="{Binding PropertyHistoryLastForThrows, StringFormat='Last 3 throws: {0}'}"
+            FontSize="Body"
+            Text="Tap buttom or shake mobile."
             TextColor="Black"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="0,20,0,100"
             />
 
         <Image
@@ -33,7 +36,7 @@
 
         <Button
             Grid.Row="3"
-            Margin="30,0,30,50"
+            Margin="30,50,30,0"
             BackgroundColor="LightGoldenrodYellow"
             BorderWidth="50"
             Command="{Binding Tapcommand}"
@@ -44,9 +47,11 @@
             Text="Roll coin"
             VerticalOptions="Center">
         </Button>
-        <!--<Image
+        <Image
             Source="OpenLabIcon.jpg"
             Grid.Row="4"
-            />-->
+            HeightRequest="50"
+            Margin="0,25,0,25"
+            />
     </Grid>
 </ContentPage>
