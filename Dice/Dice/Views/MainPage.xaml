@@ -10,29 +10,92 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Label
             Grid.Row="1"
-            Text="Throw to Win"
+            Text="T"
+            FontSize="Header"
+            TextColor="Blue"
+            Margin="0,20,0,0"
+            />
+        <Label
+            Grid.Row="1"
+            Text="H"
+            FontSize="Header"
+            TextColor="Green"
+            Margin="60,20,0,0"
+            />
+        <Label
+            Grid.Row="1"
+            Text="R"
+            FontSize="Header"
+            TextColor="Red"
+            Margin="120,20,0,0"
+            />
+        <Label
+            Grid.Row="1"
+            Text="O"
+            FontSize="Header"
+            TextColor="Orange"
+            Margin="180,20,0,0"
+            />
+        <Label
+            Grid.Row="1"
+            Text="W"
+            FontSize="Header"
+            TextColor="Purple"
+            Margin="240,20,0,0"
+            />
+        <Label
+            Grid.Row="2"
+            Text="T"
             FontSize="Large"
             TextColor="Blue"
-            Margin="0,50,0,100"
-            HorizontalOptions="Center" 
+            Margin="125,20,0,0"
+            />
+        <Label
+            Grid.Row="2"
+            Text="O"
+            FontSize="Large"
+            TextColor="Blue"
+            Margin="150,20,0,0"
+            />
+        <Label
+            Grid.Row="3"
+            Text="W"
+            FontSize="Large"
+            TextColor="Blue"
+            Margin="175,20,0,0"
+            />
+        <Label
+            Grid.Row="3"
+            Text="I"
+            FontSize="Large"
+            TextColor="Blue"
+            Margin="200,20,0,0"
+            />
+        <Label
+            Grid.Row="3"
+            Text="N"
+            FontSize="Large"
+            TextColor="Blue"
+            Margin="225,20,0,0"
             />
 
         <Image
-            Grid.Row="2"
-            Source="Dice5.jpg"
-            Margin="50,50,50,50"
+            Grid.Row="4"
+            Source="MainPagePicture.png"
+            Margin="50,0,50,0"
             />
         <Image
             Source="OpenLabIcon.jpg"
-            Grid.Row="3"
+            Grid.Row="5"
+            Margin="0,20,0,20"
             />
     </Grid>
 
